@@ -48,7 +48,7 @@ export const ThongTinCaNhanPage = () => {
     try {
       const url = `${
         import.meta.env.VITE_API_BASE_URL
-      }/secure/thongtincanhan/get`;
+      }/thongtincanhan/get-thong-tin-ca-nhan`;
       console.log(url);
       const response = await axios.get(url, { withCredentials: true });
 

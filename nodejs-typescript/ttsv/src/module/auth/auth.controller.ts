@@ -1,7 +1,7 @@
 import { Controller, Get, UseGuards, Req, Res, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { MicrosoftAuthGuard } from 'src/guards/microsoft-auth.guars';
-import { User } from '../user/user.entity';
+import User from '../user/user.entity';
 import { Response as ExpressResponse } from 'express';
 import { JwtAuthGuard } from 'src/guards/jwt.guards';
 @Controller('auth')

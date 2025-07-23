@@ -8,6 +8,11 @@ interface RequestWithCookies extends Request {
     jwt?: string;
   };
 }
+interface payload {
+  userId: number;
+  email: string;
+  role: string;
+}
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   constructor() {
@@ -30,7 +35,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     console.log(process.env.JWT_SECRET);
   }
 
-  validate(payload: string) {
+  validate(payload: payload): payload {
     console.log('JWT Payload:', payload);
     return payload;
   }
