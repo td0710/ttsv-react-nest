@@ -36,9 +36,9 @@ export const ThongTinCaNhanPage = () => {
 
       const response = await axios.get(url);
 
-      const dsTinhThanh = response.data.data.map((item: TinhThanh) => ({
-        value: String(item.value),
-        label: item.label,
+      const dsTinhThanh = response.data.data.map((item: any) => ({
+        value: String(item.id),
+        label: item.name,
       }));
       setListTinhThanh(dsTinhThanh);
     };
@@ -77,7 +77,9 @@ export const ThongTinCaNhanPage = () => {
   const UpdateThongTinCaNhan = async (data: ThongTinCaNhanModel) => {
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_API_BASE_URL}/secure/thongtincanhan/update`,
+        `${
+          import.meta.env.VITE_API_BASE_URL
+        }/thongtincanhan/update-thong-tin-ca-nhan`,
         data,
         { withCredentials: true }
       );
