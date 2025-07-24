@@ -14,6 +14,8 @@ import { GiayxacnhanModule } from './module/giayxacnhan/giayxacnhan.module';
 import { YeucaugiayxacnhanModule } from './module/yeucaugiayxacnhan/yeucaugiayxacnhan.module';
 import { GiayXacNhan } from './module/giayxacnhan/entities/giayxacnhan.entity';
 import { YeuCauGiayXacNhan } from './module/yeucaugiayxacnhan/entities/yeucaugiayxacnhan.entity';
+import { TuyenxebuytModule } from './module/tuyenxebuyt/tuyenxebuyt.module';
+import { TuyenXeBuyt } from './module/tuyenxebuyt/entities/tuyenxebuyt.entity';
 
 @Module({
   imports: [
@@ -28,12 +30,19 @@ import { YeuCauGiayXacNhan } from './module/yeucaugiayxacnhan/entities/yeucaugia
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DBNAME,
-      entities: [User, ThongTinCaNhan, GiayXacNhan, YeuCauGiayXacNhan],
+      entities: [
+        User,
+        ThongTinCaNhan,
+        GiayXacNhan,
+        YeuCauGiayXacNhan,
+        TuyenXeBuyt,
+      ],
     }),
     UserModule,
     ThongtincanhanModule,
     YeucaugiayxacnhanModule,
     GiayxacnhanModule,
+    TuyenxebuytModule,
   ],
   controllers: [AppController, ThongtincanhanController],
   providers: [AppService, ThongtincanhanService],

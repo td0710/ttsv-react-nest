@@ -93,9 +93,11 @@ export const DangKyXeBuytPage = () => {
 
   useEffect(() => {
     const fetchTuyenXe = async () => {
-      const url = `${import.meta.env.VITE_API_BASE_URL}/secure/tuyenxe/get-all`;
+      const url = `${
+        import.meta.env.VITE_API_BASE_URL
+      }/tuyenxebuyt/get-tuyen-xe`;
       const response = await axios.get(url, { withCredentials: true });
-
+      console.log(response);
       const listTuyenXe = response.data.map((item: TuyenXeModel) => {
         return {
           id: item.id,
