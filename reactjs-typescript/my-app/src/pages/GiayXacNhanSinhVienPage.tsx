@@ -62,7 +62,7 @@ export const GiayXacNhanSinhVienPage = () => {
     try {
       const url = `${
         import.meta.env.VITE_API_BASE_URL
-      }/secure/yeucaugiayxacnhan/get-all`;
+      }/yeucaugiayxacnhan/get-yeu-cau-by-id`;
       const response = await axios.get(url, { withCredentials: true });
       const list = response.data.map(
         (item: YeuCauGiayXacNhanModel, index: number) => ({

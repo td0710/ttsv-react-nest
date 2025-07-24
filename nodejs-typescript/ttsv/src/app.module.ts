@@ -13,6 +13,7 @@ import { ThongTinCaNhan } from './module/thongtincanhan/entities/thongtincanhan.
 import { GiayxacnhanModule } from './module/giayxacnhan/giayxacnhan.module';
 import { YeucaugiayxacnhanModule } from './module/yeucaugiayxacnhan/yeucaugiayxacnhan.module';
 import { GiayXacNhan } from './module/giayxacnhan/entities/giayxacnhan.entity';
+import { YeuCauGiayXacNhan } from './module/yeucaugiayxacnhan/entities/yeucaugiayxacnhan.entity';
 
 @Module({
   imports: [
@@ -27,7 +28,7 @@ import { GiayXacNhan } from './module/giayxacnhan/entities/giayxacnhan.entity';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DBNAME,
-      entities: [User, ThongTinCaNhan, GiayXacNhan],
+      entities: [User, ThongTinCaNhan, GiayXacNhan, YeuCauGiayXacNhan],
     }),
     UserModule,
     ThongtincanhanModule,
