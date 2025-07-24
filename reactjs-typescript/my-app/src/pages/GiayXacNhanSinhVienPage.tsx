@@ -35,7 +35,8 @@ export const GiayXacNhanSinhVienPage = () => {
       try {
         const url = `${
           import.meta.env.VITE_API_BASE_URL
-        }/secure/giayxacnhan/get-all`;
+        }/giayxacnhan/get-giay-xac-nhan`;
+        console.log(url);
         const response = await axios.get(url, { withCredentials: true });
         const listGiayXacNhan = response.data.map((item: GiayXacNhanModel) => {
           return {
