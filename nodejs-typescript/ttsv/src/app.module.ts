@@ -16,6 +16,9 @@ import { GiayXacNhan } from './module/giayxacnhan/entities/giayxacnhan.entity';
 import { YeuCauGiayXacNhan } from './module/yeucaugiayxacnhan/entities/yeucaugiayxacnhan.entity';
 import { TuyenxebuytModule } from './module/tuyenxebuyt/tuyenxebuyt.module';
 import { TuyenXeBuyt } from './module/tuyenxebuyt/entities/tuyenxebuyt.entity';
+import { YeucauvexebuytModule } from './module/yeucauvexebuyt/yeucauvexebuyt.module';
+import { YeuCauVeXe } from './module/yeucauvexebuyt/entities/yeucauvexebuyt.entity';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
@@ -36,6 +39,7 @@ import { TuyenXeBuyt } from './module/tuyenxebuyt/entities/tuyenxebuyt.entity';
         GiayXacNhan,
         YeuCauGiayXacNhan,
         TuyenXeBuyt,
+        YeuCauVeXe,
       ],
     }),
     UserModule,
@@ -43,6 +47,8 @@ import { TuyenXeBuyt } from './module/tuyenxebuyt/entities/tuyenxebuyt.entity';
     YeucaugiayxacnhanModule,
     GiayxacnhanModule,
     TuyenxebuytModule,
+    YeucauvexebuytModule,
+    UploadModule,
   ],
   controllers: [AppController, ThongtincanhanController],
   providers: [AppService, ThongtincanhanService],

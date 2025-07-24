@@ -59,7 +59,7 @@ export const DangKyXeBuytPage = () => {
     try {
       const img = values.anh?.[0]?.originFileObj;
       const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/secure/yeucauvexebuyt/create`,
+        `${import.meta.env.VITE_API_BASE_URL}/yeucauvexebuyt/create-yeu-cau`,
         {
           loaiVe: values.tuyen,
           tuyen: values.selectedTuyen,

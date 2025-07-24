@@ -22,23 +22,23 @@ export class LoaiVeHelper {
   static fromLabel(label: string): LoaiVe {
     const reverseMapping: Record<string, LoaiVe> = {};
 
-    Object.keys(LoaiVe).forEach((key) => {
-      const enumKey = key as keyof typeof LoaiVe;
-      const enumValue = LoaiVe[enumKey];
-      reverseMapping[this.labelMap[enumValue]] = enumValue;
-    });
+    for (const key in LoaiVe) {
+      if (isNaN(Number(key))) {
+        reverseMapping[LoaiVe[key as keyof typeof LoaiVe]] = key as LoaiVe;
+      }
+    }
 
-    const normalizedLabel = label.trim();
-    const foundValue = Object.keys(reverseMapping).find(
-      (k) => k === normalizedLabel,
+    const normalizedLabel = label.trim().toLowerCase();
+    const foundKey = Object.keys(reverseMapping).find(
+      (k) => k.toLowerCase() === normalizedLabel,
     );
 
-    if (foundValue) {
-      return reverseMapping[foundValue];
+    if (foundKey) {
+      return reverseMapping[foundKey];
     }
 
     throw new BadRequestException(
-      `Không tìm thấy loại vé phù hợp với: "${label}"`,
+      `Không tìm thấy loại giấy phù hợp với: "${label}"`,
     );
   }
 }
