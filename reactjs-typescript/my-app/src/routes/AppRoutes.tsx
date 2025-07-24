@@ -1,4 +1,3 @@
-import { DangKyXeBuytPage } from "../pages/KTX/DangKyXeBuytPage";
 import { GiayXacNhanSinhVienPage } from "../pages/GiayXacNhanSinhVienPage";
 import { Loading } from "../pages/Loading";
 import { ThongTinCaNhanPage } from "../pages/ThongTinCaNhanPage";
@@ -9,6 +8,7 @@ import LoginPage from "../pages/LoginPage";
 import { PublicRoute } from "./PublicRoute";
 import { ThongBaoPage } from "../pages/ThongBaoPage";
 import { DangKyKTXPage } from "../pages/KTX/DangKyKTXPage";
+import { DangKyXeBuytPage } from "../pages/DangKyXeBuytPage";
 const withLayout = (component: React.ReactNode) => (
   <MainLayout>{component}</MainLayout>
 );

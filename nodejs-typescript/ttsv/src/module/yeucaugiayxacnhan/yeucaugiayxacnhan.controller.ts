@@ -1,4 +1,11 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  Get,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { YeucaugiayxacnhanService } from './yeucaugiayxacnhan.service';
 import { JwtAuthGuard } from 'src/guards/jwt.guards';
 import { UserIdFromCookie } from 'src/common/decorators/user-id-from-cookie.decorator';
@@ -13,5 +20,21 @@ export class YeucaugiayxacnhanController {
   @Get('get-yeu-cau-by-id')
   async getYeuCauById(@UserIdFromCookie() userId: number) {
     return await this.yeuCauGiayXacNhanService.getAllYeuCauById(userId);
+  }
+  @UseGuards(JwtAuthGuard)
+  @Delete('huy-yeu-cau')
+  async huyYeuCau(@Query('id') id: number) {
+    await this.yeuCauGiayXacNhanService.huyYeuCau(id);
+    return 'Hủy yêu cầu thành công';
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('create-yeu-cau')
+  async createYeuCau(
+    @Query('loaiGiay') loaiGiay: string,
+    @UserIdFromCookie() userId: number,
+  ) {
+    await this.yeuCauGiayXacNhanService.createYeuCau(userId, loaiGiay);
+    return 'Tạo yêu cầu thành công';
   }
 }

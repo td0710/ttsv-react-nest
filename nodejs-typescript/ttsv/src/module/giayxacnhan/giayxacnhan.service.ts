@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { GiayXacNhan } from './entities/giayxacnhan.entity';
 import { GiayXacNhanResponse } from './dto/giayxacnhan.response';
-import { getLoaiGiayDescription } from './enum/loaigiay.enum';
+import { LoaiGiayHelper } from './enum/loaigiay.enum';
 
 @Injectable()
 export class GiayxacnhanService {
@@ -19,7 +19,7 @@ export class GiayxacnhanService {
     const response = listGiayXacNhan.map((item: GiayXacNhan) => {
       return {
         id: item.id,
-        name: getLoaiGiayDescription(item.loaiGiay),
+        name: LoaiGiayHelper.getLabel(item.loaiGiay),
       };
     }) as GiayXacNhanResponse[];
     return response;

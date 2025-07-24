@@ -93,15 +93,8 @@ export const GiayXacNhanSinhVienPage = () => {
     try {
       const url = `${
         import.meta.env.VITE_API_BASE_URL
-      }/secure/yeucaugiayxacnhan/create`;
-      const response = await axios.post(
-        url,
-        {
-          user_id: 1,
-          loaiGiay: values.giayXacNhan,
-        },
-        { withCredentials: true }
-      );
+      }/yeucaugiayxacnhan/create-yeu-cau?loaiGiay=${values.giayXacNhan}`;
+      const response = await axios.post(url, {}, { withCredentials: true });
       console.log(response);
 
       notify(
@@ -122,9 +115,10 @@ export const GiayXacNhanSinhVienPage = () => {
   };
   const handleHuyYeuCau = async (data: number) => {
     try {
+      console.log(data);
       const url = `${
         import.meta.env.VITE_API_BASE_URL
-      }/secure/yeucaugiayxacnhan/delete?id=${data}`;
+      }/yeucaugiayxacnhan/huy-yeu-cau?id=${data}`;
       const response = await axios.delete(url, { withCredentials: true });
       notify(
         "success",
