@@ -115,7 +115,7 @@ export const DangKyXeBuytPage = () => {
     try {
       const url = `${
         import.meta.env.VITE_API_BASE_URL
-      }/secure/yeucauvexebuyt/get-all`;
+      }/yeucauvexebuyt/get-yeu-cau-ve-xe`;
 
       const response = await axios.get(url, { withCredentials: true });
 
@@ -148,7 +148,7 @@ export const DangKyXeBuytPage = () => {
       console.log(data);
       const url = `${
         import.meta.env.VITE_API_BASE_URL
-      }/secure/yeucauvexebuyt/delete?id=${data}`;
+      }/yeucauvexebuyt/huy-yeu-cau-vxb?id=${data}`;
       const response = await axios.delete(url, { withCredentials: true });
       notify(
         "success",
